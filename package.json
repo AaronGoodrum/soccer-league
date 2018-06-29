@@ -1,0 +1,15 @@
+{
+  "name": "soccer-league",
+  "version": "1.0.0",
+  "description": "command-line application to calculate league Ranking",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Aaron Goodrum",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
