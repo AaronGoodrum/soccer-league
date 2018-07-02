@@ -1,5 +1,3 @@
-let log = console.log;
-
 let calculateScores = require('./calculateScores')
 
 const TEAMS = {}
@@ -24,13 +22,13 @@ processData = (data) => {
 
       if (TEAMS[name] === undefined) {
         TEAMS[name] = {
-          TeamName: name,
+          Team: name,
           points
         }
       } else {
         points += TEAMS[name].points
         TEAMS[name] = {
-          TeamName: name,
+          Team: name,
           points
         }
       }

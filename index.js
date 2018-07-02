@@ -1,14 +1,8 @@
 'use strict';
 const fs = require('fs');
 
-// let processData = require('./soccer/processData');
-let dataParser = require('./soccer/dataParser');
 let processData = require('./soccer/processData')
-
-const path = process.argv[2];
-
-let text = "Lions 3, Snakes 3 Tarantulas 1, FC Awesome 0 Lions 1, FC Awesome 1 Tarantulas 3, Snakes 1 Lions 4, Grouches 0"
-
+let sortTeams = require('./soccer/sortTeams')
 
 //Check input file from command line
 let testCommandLine = () => {
@@ -16,14 +10,35 @@ let testCommandLine = () => {
     console.log('REQUIRE: node index.js <FILE.txt>')
     process.exit(1);
   } else {
-    // open up a readable stream
-    console.log('TRUE')
+    // return input readable stream
     return fs.readFileSync(process.argv[2]).toString();
   }
 }
 
+//Test incoming data
 let outputData = testCommandLine();
+console.log(outputData)
+//Process all data incoming
 let returnTeams = processData(outputData);
-// let allteams = dataParser(outputData);
-console.log('END TEST - ', returnTeams);
+console.log(returnTeams)
+//Sort out Team by Score
+//Then Return input data back to console
+let sortedTeams = sortTeams(returnTeams)
+// Return input data back to console
+console.log(sortedTeams)
 
+for (let i = 0; i < sortedTeams.length; i++) {
+  const val = Object.values(sortedTeams[i])
+  // console.log(Object.values(sortedTeams[i]))
+  let x = i - 1;
+  if (x > 1) {
+    const val2 = Object.values(sortedTeams[x])
+    if( val2[x] === val[i]){
+      console.log(x + 1 + ". " + val[0] + ", " + val[1] + ' pts');
+    } else {
+      console.log(i + 1 + ". " + val[0] + ", " + val[1] + ' pts');
+    }
+  } else{
+    console.log(i + 1 + ". " + val[0] + ", " + val[1] + ' pts');
+  }
+};
