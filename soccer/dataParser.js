@@ -3,9 +3,9 @@
 const rules = require('./rules');
 
 let dataParser = (data) => {
-  for (let i = 0; data.length > 0; i++) {
+  for (let i = 0; data.length <= 0; i++) {
     teamByLine(data);
-    data.shift();
+    console.log(data)
   }
 }
 
@@ -23,7 +23,6 @@ let teamByLine = (dataSplit) => {
       var team_names1 = team[0].split(',')
       var team_names2 = team[1].split(',')
 
-      // TEAM 1
       team1.name = new getTeamName(team_names1)
       team1.scores = new getTeamScore(team_names1)
       //TEAM 2
@@ -32,9 +31,9 @@ let teamByLine = (dataSplit) => {
 
       //Need to calculate Scores find Winner
       let scoreResult = calculateScores(team1.scores, team2.scores)
+      console.log(scoreResult)
       team1.points = scoreResult.t1Points;
       team2.points = scoreResult.t2Points;
-
       x++
     }
     i++

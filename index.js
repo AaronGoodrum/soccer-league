@@ -3,6 +3,7 @@ const fs = require('fs');
 
 // let processData = require('./soccer/processData');
 let dataParser = require('./soccer/dataParser');
+let processData = require('./soccer/processData')
 
 const path = process.argv[2];
 
@@ -13,22 +14,16 @@ let text = "Lions 3, Snakes 3 Tarantulas 1, FC Awesome 0 Lions 1, FC Awesome 1 T
 let testCommandLine = () => {
   if (process.argv.length < 3) {
     console.log('REQUIRE: node index.js <FILE.txt>')
-    process.exit;
+    process.exit(1);
   } else {
     // open up a readable stream
-    return fs.readFileSync(process.argv[2]).toString().split('\n');
-  }
-}
-
-//find the team name and scores pre game
-class getTeamArray {
-  constructor(team_name, team_scores) {
-    this.team_name = team_name;
-    this.team_scores = team_scores;
+    console.log('TRUE')
+    return fs.readFileSync(process.argv[2]).toString();
   }
 }
 
 let outputData = testCommandLine();
-let test = dataParser(outputData);
-console.log('TEST - ', test);
+let returnTeams = processData(outputData);
+// let allteams = dataParser(outputData);
+console.log('END TEST - ', returnTeams);
 
