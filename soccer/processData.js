@@ -39,7 +39,7 @@ processData = (data) => {
 
   function getTeamName(teamName) {
     //Grab the last value as the score.
-    this.teamName = teamName.toString()
+    this.teamName = teamName
     //remove all nonNumbers
     this.teamName = this.teamName.replace(/[0-9]/g, '').trim();
     return this.teamName;

@@ -1,11 +1,12 @@
 const rules = require('./rules');
+const dataParser = require('./dataParser')
 
 calculateScores = (team1, team2) => {
+
   //get only teams points
-
-  let t1Scores = getTeamScore(team1)
-  let t2Scores = getTeamScore(team2)
-
+  const t1Scores = dataParser(team1)
+  const t2Scores = dataParser(team2)
+  
   //for error
   let scores = (t1Scores + t2Scores)
   if (!scores) {
@@ -32,14 +33,6 @@ calculateScores = (team1, team2) => {
       }
     }
   return [t1Points.score, t2Points.score]
-}
-
-function getTeamScore(teamScore) {
-  //Grab the last value as the score.
-  this.teamScore = teamScore.toString()
-  //remove all nonNumbers
-  this.teamScore = this.teamScore.replace(/[^0-9]/g, '').trim();
-  return this.teamScore;
 }
 
 module.exports = calculateScores;

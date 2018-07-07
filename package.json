@@ -4,7 +4,7 @@
   "description": "command-line application to calculate league Ranking",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test"
   },
   "author": "Aaron Goodrum",
   "license": "ISC",

@@ -11,21 +11,21 @@ let testCommandLine = () => {
     process.exit(1);
   } else {
     // return input readable stream
-    return fs.readFileSync(process.argv[2]).toString();
+    const dataFile = fs.readFileSync(process.argv[2]).toString();
+    return dataFile;
   }
 }
 
 //Test incoming data
 let outputData = testCommandLine();
-console.log(outputData)
+
 //Process all data incoming
 let returnTeams = processData(outputData);
-console.log(returnTeams)
+
 //Sort out Team by Score
 //Then Return input data back to console
 let sortedTeams = sortTeams(returnTeams)
 // Return input data back to console
-console.log(sortedTeams)
 
 for (let i = 0; i < sortedTeams.length; i++) {
   const val = Object.values(sortedTeams[i])
