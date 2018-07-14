@@ -1,4 +1,21 @@
-## The Problem
+## League Ranking
+A command-line application that will calculate the ranking table for a soccer league
+
+### Software Requirements
+NodeJS
+
+### Installation Instructions
+    1. Clone or download the zip file from github
+    2. Navigate to the project root folder
+    3. Open terminal/command line from there
+    4. The app expects a comma separated txt file, have that ready before running.
+    5. Inorder to startup the app, execute the following on the command line :
+
+        ``node index.js {{pathToInputFile}}``
+
+    6.App should display the list of teams ranked according to most number of points earned in command line
+
+### The Problem
 
 We want you to create a command-line application that will calculate the
 ranking table for a soccer league.

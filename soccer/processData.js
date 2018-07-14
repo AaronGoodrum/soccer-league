@@ -4,6 +4,7 @@ const TEAMS = {}
 
 
 processData = (data) => {
+  console.log(data)
   let i = 0
   let gameMatch = data.split('\n')
   
@@ -17,21 +18,20 @@ processData = (data) => {
       //Get Name and Calculate Scores  
       let name = getTeamName(matchSplit[x])
       let valTeamPoints = calculateScores(t1, t2);
-
-      let points = valTeamPoints[x]
-
       if (TEAMS[name] === undefined) {
         TEAMS[name] = {
-          Team: name,
-          points
+          team: name,
+          points: valTeamPoints[x]
         }
       } else {
-        points += TEAMS[name].points
+        let addPoints = (TEAMS[name].points + valTeamPoints[x])
         TEAMS[name] = {
-          Team: name,
-          points
+          team: name,
+          points: addPoints
+
         }
       }
+      console.log(TEAMS)
     }
 
     i++
@@ -44,7 +44,7 @@ processData = (data) => {
     this.teamName = this.teamName.replace(/[0-9]/g, '').trim();
     return this.teamName;
   }
-
+  console.log(TEAMS)
   return TEAMS;
 };
 

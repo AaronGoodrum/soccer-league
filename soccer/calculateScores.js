@@ -2,6 +2,7 @@ const rules = require('./rules');
 const dataParser = require('./dataParser')
 
 calculateScores = (team1, team2) => {
+  console.log(team1, team2)
 
   //get only teams points
   const t1Scores = dataParser(team1)
