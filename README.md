@@ -15,6 +15,18 @@ NodeJS
 
     6.App should display the list of teams ranked according to most number of points earned in command line
 
+### Testing
+Starting Karma
+
+When starting Karma, the configuration file path can be passed in as the first argument.
+
+By default, Karma will look for karma.conf.js or karma.conf.coffee in the current directory.
+
+### Start Karma using your configuration:
+$ karma start karma.conf.js
+
+For more detailed information about the Karma configuration file, such as available options and features, please read the configuration file docs.
+
 ### The Problem
 
 We want you to create a command-line application that will calculate the
